@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10110f" />
+    <meta
+      name="description"
+      content="A calm, clear workspace for keeping your internship and job search moving."
+    />
+    <title>Orbit — Internship &amp; Job Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Orbit home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="11.5" stroke="currentColor" stroke-width="2.4" />
+              <path d="M7.5 19.5 14 13l4 4 7-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="24.8" cy="10" r="2.2" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="brand-name">orbit<span>.</span></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="primary-nav">
+          <a class="nav-link active" href="#applications" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>
+            <span>Applications</span>
+            <span class="nav-count" id="nav-count">0</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="tip-card">
+            <span class="tip-icon" aria-hidden="true">✦</span>
+            <p class="tip-title">Small steps count.</p>
+            <p class="tip-copy">Every application is progress. Keep your momentum going.</p>
+            <div class="tip-decoration" aria-hidden="true"></div>
+          </div>
+          <div class="profile">
+            <div class="avatar" aria-hidden="true">JD</div>
+            <div class="profile-info">
+              <span class="profile-name">Job seeker</span>
+              <span class="profile-caption">Your next chapter</span>
+            </div>
+            <span class="profile-menu" aria-hidden="true">···</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="applications">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong>Applications</strong></div>
+          <div class="topbar-right">
+            <div class="saved-indicator"><span class="saved-dot"></span><span>Saved automatically</span></div>
+            <div class="date-pill" id="today-date"></div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span>YOUR CAREER JOURNEY</div>
+              <h1>Keep your momentum<span class="heading-period">.</span></h1>
+              <p class="page-subtitle">A little progress every day adds up to something big.</p>
+            </div>
+            <button class="button button-primary" id="open-modal" type="button">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+              <span>Add application</span>
+            </button>
+          </section>
+
+          <section class="stats-grid" aria-label="Application summary">
+            <article class="stat-card stat-card-total">
+              <div class="stat-topline">
+                <span class="stat-label">Total applied</span>
+                <span class="stat-icon icon-lime" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 3.8h7l4 4v12.4H7a2 2 0 0 1-2-2V5.8a2 2 0 0 1 2-2Z"/><path d="M14 4v4h4M8.5 13h7M8.5 16.5h5"/></svg>
+                </span>
+              </div>
+              <div class="stat-value" id="total-count">0</div>
+              <div class="stat-foot"><span class="stat-foot-dot lime-dot"></span><span>Opportunities in your orbit</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-topline">
+                <span class="stat-label">Interviews</span>
+                <span class="stat-icon icon-blue" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-9.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"/></svg>
+                </span>
+              </div>
+              <div class="stat-value" id="interview-count">0</div>
+              <div class="stat-foot"><span class="stat-foot-dot blue-dot"></span><span>Conversations in progress</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-topline">
+                <span class="stat-label">Offers</span>
+                <span class="stat-icon icon-violet" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20 8.5 11 17l-4-4"/><path d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5"/></svg>
+                </span>
+              </div>
+              <div class="stat-value" id="offer-count">0</div>
+              <div class="stat-foot"><span class="stat-foot-dot violet-dot"></span><span>Reasons to celebrate</span></div>
+            </article>
+          </section>
+
+          <section class="board-section" aria-label="Your applications">
+            <div class="board-heading">
+              <div>
+                <h2>Application board <span class="board-total" id="board-total">0</span></h2>
+                <p class="board-subtitle">Every opportunity, all in one place.</p>
+              </div>
+              <label class="search-box">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.6"/><path d="m13 13 4 4"/></svg>
+                <input id="search-input" type="search" placeholder="Search applications..." autocomplete="off" aria-label="Search applications" />
+                <kbd>/</kbd>
+              </label>
+            </div>
+
+            <div class="board-toolbar">
+              <div class="filter-tabs" role="tablist" aria-label="Filter by status">
+                <button class="filter-tab active" type="button" role="tab" aria-selected="true" data-filter="All">All <span id="filter-all-count">0</span></button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="Applied">Applied</button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="Interview">Interview</button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="Offer">Offer</button>
+                <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="Rejected">Rejected</button>
+              </div>
+              <span class="board-hint"><span class="live-dot"></span>Live board</span>
+            </div>
+
+            <div class="application-grid" id="application-grid" aria-live="polite"></div>
+          </section>
+          <footer class="page-footer"><span>Made for the next big thing.</span><span class="footer-star">✳</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="application-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker"><span class="modal-kicker-dot"></span>APPLICATION DETAILS</div>
+            <h2 id="modal-title">Add an application</h2>
+            <p id="modal-description">Capture the details. We’ll keep everything organized.</p>
+          </div>
+          <button class="icon-button modal-close" id="close-modal" type="button" aria-label="Close dialog">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>
+          </button>
+        </div>
+        <form id="application-form">
+          <input type="hidden" id="application-id" />
+          <label class="form-field">
+            <span>Company <span class="required-mark">*</span></span>
+            <input id="company-input" name="company" type="text" placeholder="e.g. Stripe" maxlength="80" required />
+          </label>
+          <label class="form-field">
+            <span>Role <span class="required-mark">*</span></span>
+            <input id="role-input" name="role" type="text" placeholder="e.g. Software Engineer Intern" maxlength="100" required />
+          </label>
+          <div class="form-row">
+            <label class="form-field">
+              <span>Status</span>
+              <select id="status-input" name="status">
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>Date applied</span>
+              <input id="date-input" name="date" type="date" />
+            </label>
+          </div>
+          <label class="form-field">
+            <span>Job link <span class="optional-label">OPTIONAL</span></span>
+            <div class="link-input-wrap">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 11.5 12 7.5M7 13l-1 1a3 3 0 0 1-4-4l3-3a3 3 0 0 1 4.2 0M13 7l1-1a3 3 0 0 1 4 4l-3 3a3 3 0 0 1-4.2 0"/></svg>
+              <input id="link-input" name="link" type="url" placeholder="https://careers.company.com/role" maxlength="500" />
+            </div>
+          </label>
+          <div class="form-error" id="form-error" role="alert"></div>
+          <div class="modal-actions">
+            <button class="button button-secondary" id="cancel-modal" type="button">Cancel</button>
+            <button class="button button-primary save-button" type="submit"><span id="save-button-label">Save application</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
